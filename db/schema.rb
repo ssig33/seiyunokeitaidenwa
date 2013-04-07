@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407031424) do
+ActiveRecord::Schema.define(:version => 20130407055746) do
 
   create_table "keitaidenwas", :force => true do |t|
     t.integer  "seiyu_id",   :limit => 255
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20130407031424) do
   end
 
   add_index "seiyus", ["name"], :name => "index_seiyus_on_name"
+
+  create_table "tweets", :force => true do |t|
+    t.text     "json"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tweets", ["url"], :name => "index_tweets_on_url"
 
   create_table "users", :force => true do |t|
     t.string   "name"
