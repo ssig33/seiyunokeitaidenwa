@@ -8,7 +8,7 @@
   -if @k.image?
     %img(src="#{@k.url}")
   - elsif @k.ameblo_image?
-    =image_tag @k.ameblo_image
+    =image_tag @k.ameblo_image rescue nil
     %br
     =link_to 'ここで確認', @k.url
   - elsif @k.tweet?
