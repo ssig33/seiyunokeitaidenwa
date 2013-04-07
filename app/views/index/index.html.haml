@@ -1,0 +1,37 @@
+.list
+  %table
+    %tr
+      %th 声優
+      %th 機種
+      %th その携帯電話だった日
+    -@list.page(params[:page]).each do |k|
+      %tr.autopagerize_page_element
+        %td=k.seiyu.name
+        %td=k.phone
+        %td=l k.at
+        %td=link_to '詳細', keitaidenwa_path(k)
+    %tr.autopagerize_insert_before
+
+.pager=paginate @list.page(params[:page])
+
+.register
+  =t flash[:error] if flash[:error]
+  =form_for Keitaidenwa.new do |f|
+    %table
+      =f.fields_for Seiyu.new do |s|
+        %tr
+          %th=s.label :name, '声優の名前(必須)'
+          %td=s.text_field :name
+        %tr
+          %th=s.label :url, '声優のブログなどの URL'
+          %td=s.text_field :url
+      %tr
+        %th=f.label :phone, '機種(必須)'
+        %td=f.text_field :phone
+      %tr
+        %th=f.label :at, 'その機種だった日(必須,YYYY-MM-DD)'
+        %td=f.text_field :at
+      %tr
+        %th=f.label :url, 'その携帯電話であることが分かる URL(必須)'
+        %th=f.text_field :url
+    %p=f.submit '登録'

@@ -1,0 +1,13 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: '入力値が不正です、多分なんか必須のやつ入れてません'
+  date:
+    formats:
+      default: '%Y年%m月%d日'

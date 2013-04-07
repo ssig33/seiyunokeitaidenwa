@@ -1,0 +1,12 @@
+%h2="#{@s.name}の携帯電話遍歴"
+%table
+  %tr
+    %th 機種
+    %th その携帯電話だった日
+  -@s.keitaidenwas.order('at desc').page(params[:page]).each do |k|
+    %tr.autopagerize_page_element
+      %td=k.phone
+      %td=l k.at
+      %td=link_to '詳細', keitaidenwa_path(k)
+  %tr.autopagerize_insert_before
+.pager=paginate @s.keitaidenwas.order('at desc').page(params[:page])

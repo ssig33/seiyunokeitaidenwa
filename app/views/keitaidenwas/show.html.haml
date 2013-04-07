@@ -1,0 +1,10 @@
+%h2
+  =link_to @k.seiyu.name, seiyu_path(@k.seiyu)
+  の
+  =l @k.at
+  の携帯電話は
+  =@k.phone
+-if @k.image?
+  %img(src="#{@k.url}")
+-else
+  =link_to 'ここで確認', @k.url
