@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407055746) do
+ActiveRecord::Schema.define(:version => 20130407071713) do
+
+  create_table "ameblo_images", :force => true do |t|
+    t.string   "url"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ameblo_images", ["url"], :name => "index_ameblo_images_on_url"
 
   create_table "keitaidenwas", :force => true do |t|
     t.integer  "seiyu_id",   :limit => 255

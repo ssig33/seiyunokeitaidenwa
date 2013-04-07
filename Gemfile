@@ -12,6 +12,7 @@ end
 gem 'pg'
 gem 'sewell'
 gem 'thin'
+gem 'mechanize'
 
 gem 'omniauth-oauth', github: 'ssig33/omniauth-oauth'
 gem 'omniauth-twitter'
@@ -20,6 +21,7 @@ gem 'haml'
 gem 'omniauth-openid'
 gem 'omniauth-facebook'
 gem 'twitter'
+gem 'rmagick', require: 'RMagick'
 
 
 # Gems used only for assets and not required

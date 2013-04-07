@@ -18,5 +18,12 @@ class Keitaidenwa < ActiveRecord::Base
   def tweet
     Tweet.from_url self.url
   end
+  
+  def ameblo_image?
+    self.url =~ /ameblo\.jp\/.*?\/image\-.*html/
+  end
 
+  def ameblo_image
+    AmebloImage.from_url self.url
+  end
 end

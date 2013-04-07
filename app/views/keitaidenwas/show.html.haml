@@ -7,6 +7,10 @@
 %p
   -if @k.image?
     %img(src="#{@k.url}")
+  - elsif @k.ameblo_image?
+    =image_tag @k.ameblo_image
+    %br
+    =link_to 'ここで確認', @k.url
   - elsif @k.tweet?
     =raw "<blockquote class=\"twitter-tweet\"><p>#{@k.tweet['text']}</p>&mdash; #{@k.tweet['user']['name']} (@#{@k.tweet['user']['screen_name']}) <a href=\"#{@k.url}\"></a></blockquote><script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
     %h3 この発言は #{raw @k.tweet['source']} で発言されています。
