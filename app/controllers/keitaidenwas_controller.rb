@@ -12,6 +12,11 @@ class KeitaidenwasController < ApplicationController
     redirect_to '/'
   end
 
+  def delete
+    Keitaidenwa.find(params[:id]).destroy
+    redirect_to '/'
+  end
+
   def list
     @list = Keitaidenwa.where(phone: params[:phone]).order('at desc')
   end

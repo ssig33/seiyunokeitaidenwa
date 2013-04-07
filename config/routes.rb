@@ -2,9 +2,11 @@
 Seiyunokeitaidenwa::Application.routes.draw do
   root to: 'index#index'
   get 'denwa/:id' => 'keitaidenwas#show', as: :keitaidenwa
+  delete 'denwa/:id' => 'keitaidenwas#delete'
   put 'denwa/:id' => 'keitaidenwas#update'
   get 'denwa/edit/:id' => 'keitaidenwas#edit', as: :edit_keitaidenwa
   get 'kishu/:phone' => 'keitaidenwas#list', as: :kishu
+
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu
