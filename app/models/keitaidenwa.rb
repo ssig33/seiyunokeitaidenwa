@@ -3,6 +3,9 @@ class Keitaidenwa < ActiveRecord::Base
   accepts_nested_attributes_for :seiyu
   attr_accessible :at, :phone, :seiyu_id, :url
   has_one :tweet, primary_key: :url, foreign_key: :url
+  validates_presence_of :at
+  validates_presence_of :phone
+  validates_presence_of :url
   before_save do
     true
   end
