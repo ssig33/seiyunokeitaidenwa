@@ -2,6 +2,8 @@
 Seiyunokeitaidenwa::Application.routes.draw do
   root to: 'index#index'
   get 'denwa/:id' => 'keitaidenwas#show', as: :keitaidenwa
+  put 'denwa/:id' => 'keitaidenwas#update'
+  get 'denwa/edit/:id' => 'keitaidenwas#edit', as: :edit_keitaidenwa
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu

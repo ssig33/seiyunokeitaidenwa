@@ -4,7 +4,11 @@
   =l @k.at
   の携帯電話は
   =@k.phone
--if @k.image?
-  %img(src="#{@k.url}")
--else
-  =link_to 'ここで確認', @k.url
+%p
+  -if @k.image?
+    %img(src="#{@k.url}")
+  -else
+    =link_to 'ここで確認', @k.url
+-if login?
+  %p=link_to '情報を編集', edit_keitaidenwa_path(@k)
+

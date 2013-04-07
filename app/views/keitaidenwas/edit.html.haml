@@ -1,0 +1,14 @@
+%h2 #{@k.seiyu.name}の携帯電話の情報を編集
+=t flash[:error] if flash[:error]
+=form_for @k do |f|
+  %table
+    %tr
+      %th=f.label :phone, '機種(必須)'
+      %td=f.text_field :phone
+    %tr
+      %th=f.label :at, 'その機種だった日(必須,YYYY-MM-DD)'
+      %td=f.text_field :at
+    %tr
+      %th=f.label :url, 'その携帯電話であることが分かる URL(必須)'
+      %th=f.text_field :url
+  %p=f.submit '更新'

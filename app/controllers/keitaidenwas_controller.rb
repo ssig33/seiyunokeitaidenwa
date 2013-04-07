@@ -15,4 +15,16 @@ class KeitaidenwasController < ApplicationController
   def show
     @k = Keitaidenwa.find params[:id]
   end
+
+  def edit
+    login
+    @k = Keitaidenwa.find params[:id]
+  end
+  
+  def update
+    login
+    k = Keitaidenwa.find params[:id]
+    k.update_attributes params[:keitaidenwa]
+    redirect_to keitaidenwa_path k
+  end
 end

@@ -11,8 +11,7 @@
     =link_to image_tag('openid.png'), '/auth/openid'
     %br
     =link_to image_tag('twitter.png'), '/auth/twitter'
-    -#
-      %br
-      =link_to image_tag('facebook.png'), '/auth/facebook'
+    %br
+    =link_to image_tag('facebook.png'), '/auth/facebook'
 -else
   %p=link_to 'ログアウト', sessions_path, method: 'DELETE'
