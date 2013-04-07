@@ -33,7 +33,7 @@
       %tr.autopagerize_page_element
         %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
         %td=link_to k.phone, kishu_path(k.phone)
-        %td=l k.at
+        %td=l k.at rescue nil
         %td=link_to '詳細', keitaidenwa_path(k)
         -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
           %td=link_to '削除', keitaidenwa_path(k), method: 'DELETE', data: {confirm: 'really?'}
