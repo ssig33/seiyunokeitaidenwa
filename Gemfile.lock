@@ -36,8 +36,6 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    archive-zip (0.6.0)
-      io-like (>= 0.3.0)
     arel (3.0.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -57,7 +55,6 @@ GEM
     hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.1)
-    io-like (0.3.0)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -80,7 +77,6 @@ GEM
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     pg (0.15.0)
-    pkg-config (1.1.4)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -107,10 +103,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    rroonga (3.0.0)
-      archive-zip
-      json
-      pkg-config
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -149,7 +141,6 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 3.2.13)
-  rroonga
   sass-rails (~> 3.2.3)
   sewell
   sqlite3
