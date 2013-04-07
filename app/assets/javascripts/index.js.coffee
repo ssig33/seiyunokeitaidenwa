@@ -16,7 +16,7 @@ Tweet = ->
     $('#keitaidenwa_at').val "#{date.getFullYear()}/#{date.getMonth()}/#{date.getDate()}"
     $('#keitaidenwa_url').val "http://twitter.com/#{data.user.screen_name}/status/#{data.id_str}"
   @detect = (source)=>
-    if source.match /iPhone/
+    if source.match /iPhone|iOS/
       'iPhone'
     else
       undefined
