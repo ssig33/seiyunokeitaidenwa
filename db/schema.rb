@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407013309) do
+ActiveRecord::Schema.define(:version => 20130407031424) do
 
   create_table "keitaidenwas", :force => true do |t|
-    t.string   "seiyu_id"
+    t.integer  "seiyu_id",   :limit => 255
     t.string   "phone"
     t.string   "url"
     t.date     "at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "keitaidenwas", ["at"], :name => "index_keitaidenwas_on_at"
