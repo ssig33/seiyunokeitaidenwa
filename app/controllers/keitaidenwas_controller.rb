@@ -13,6 +13,7 @@ class KeitaidenwasController < ApplicationController
   end
 
   def delete
+    raise unless session[:login] =~ /https:\/\/id.mixi.jp\/118379/
     Keitaidenwa.find(params[:id]).destroy
     redirect_to '/'
   end
