@@ -8,7 +8,9 @@
   の携帯電話は
   =link_to @k.phone, kishu_path(@k.phone)
 %p
-  -if @k.image?
+  - if @k.excite_image?
+    %img(src="#{@k.excite_image}")
+  - elsif @k.image?
     %img(src="#{@k.url}")
   - elsif @k.ameblo_image?
     =image_tag @k.ameblo_image rescue nil

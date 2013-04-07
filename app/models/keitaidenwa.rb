@@ -29,4 +29,12 @@ class Keitaidenwa < ActiveRecord::Base
   def ameblo_image
     AmebloImage.from_url self.url
   end
+
+  def excite_image?
+    self.url =~ /blog\.excite\.co\.jp\/.*detail.*\.jpg/
+  end
+
+  def excite_image
+    AmebloImage.from_url_excite self.url
+  end
 end
