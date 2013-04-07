@@ -6,7 +6,7 @@
       %th その携帯電話だった日
     -@list.page(params[:page]).each do |k|
       %tr.autopagerize_page_element
-        %td=k.seiyu.name
+        %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
         %td=k.phone
         %td=l k.at
         %td=link_to '詳細', keitaidenwa_path(k)
