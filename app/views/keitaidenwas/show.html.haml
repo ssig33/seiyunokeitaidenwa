@@ -3,7 +3,7 @@
   の
   =l @k.at
   の携帯電話は
-  =@k.phone
+  =link_to @k.phone, kishu_path(@k.phone)
 %p
   -if @k.image?
     %img(src="#{@k.url}")

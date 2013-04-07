@@ -7,7 +7,7 @@
     -@list.page(params[:page]).each do |k|
       %tr.autopagerize_page_element
         %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
-        %td=k.phone
+        %td=link_to k.phone, kishu_path(k.phone)
         %td=l k.at
         %td=link_to '詳細', keitaidenwa_path(k)
     %tr.autopagerize_insert_before
@@ -15,7 +15,7 @@
 .pager=paginate @list.page(params[:page])
 
 -if login?
-  %h2 声優の携帯電話の情報を登録
+  %h3 声優の携帯電話の情報を登録
   .register
     =t flash[:error] if flash[:error]
     =form_for Keitaidenwa.new do |f|
@@ -31,7 +31,7 @@
           %th=f.label :phone, '機種(必須)'
           %td=f.text_field :phone
         %tr
-          %th=f.label :at, 'その機種だった日(必須,YYYY-MM-DD)'
+          %th=f.label :at, 'その機種だった日(必須,YYYY/MM/DD)'
           %td=f.text_field :at
         %tr
           %th=f.label :url, 'その携帯電話であることが分かる URL(必須)'

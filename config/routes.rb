@@ -4,6 +4,7 @@ Seiyunokeitaidenwa::Application.routes.draw do
   get 'denwa/:id' => 'keitaidenwas#show', as: :keitaidenwa
   put 'denwa/:id' => 'keitaidenwas#update'
   get 'denwa/edit/:id' => 'keitaidenwas#edit', as: :edit_keitaidenwa
+  get 'kishu/:phone' => 'keitaidenwas#list', as: :kishu
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu

@@ -12,6 +12,10 @@ class KeitaidenwasController < ApplicationController
     redirect_to '/'
   end
 
+  def list
+    @list = Keitaidenwa.where(phone: params[:phone]).order('at desc')
+  end
+
   def show
     @k = Keitaidenwa.find params[:id]
   end

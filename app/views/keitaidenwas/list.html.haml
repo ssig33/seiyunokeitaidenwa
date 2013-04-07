@@ -1,27 +1,29 @@
-%h2="#{@s.name}の携帯電話遍歴"
+%h2 #{params[:phone]} を使っていた声優の一覧
 %table
   %tr
-    %th 機種
+    %th 声優
     %th その携帯電話だった日
-  -@s.keitaidenwas.order('at desc').page(params[:page]).each do |k|
+  -@list.page(params[:page]).each do |k|
     %tr.autopagerize_page_element
-      %td=link_to k.phone, kishu_path(k.phone)
+      %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
       %td=l k.at
       %td=link_to '詳細', keitaidenwa_path(k)
   %tr.autopagerize_insert_before
-.pager=paginate @s.keitaidenwas.order('at desc').page(params[:page])
+.pager=paginate @list.page(params[:page])
 -if login?
-  %h3 #{@s.name}の使っている携帯電話の情報を登録
+  %h3 #{params[:phone]} を使っている声優の情報を登録
   .register
     =t flash[:error] if flash[:error]
     =form_for Keitaidenwa.new do |f|
       =f.hidden_field :phone, value: params[:phone]
       %table
         =f.fields_for Seiyu.new do |s|
-          =s.hidden_field :name, value: @s.name
-        %tr
-          %th=f.label :phone, '機種(必須)'
-          %td=f.text_field :phone
+          %tr
+            %th=s.label :name, '声優の名前(必須)'
+            %td=s.text_field :name
+          %tr
+            %th=s.label :url, '声優のブログなどの URL'
+            %td=s.text_field :url
         %tr
           %th=f.label :at, "#{params[:phone]} だった日(必須,YYYY/MM/DD)"
           %td=f.text_field :at
