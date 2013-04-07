@@ -1,0 +1,6 @@
+production:
+  fluent_host:   ssig33.com
+  fluent_port:   24225
+  tag:           'seiyunokeitaidenwa'
+  messages_type: 'string'
+
