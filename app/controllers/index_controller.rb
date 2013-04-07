@@ -1,6 +1,11 @@
 class IndexController < ApplicationController
   def index
-    @list = Keitaidenwa.order('id desc')
+    unless html = Cache.get(request.url)
+      @list = Keitaidenwa.order('id desc')
+      html = render_to_string
+      Cache.set request.url, html
+    end
+    render text: html
   end
 
   def tweet

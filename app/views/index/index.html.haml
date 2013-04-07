@@ -29,7 +29,7 @@
       %th 声優
       %th 機種
       %th その携帯電話だった日
-    -@list.page(params[:page]).each do |k|
+    -@list.includes(:seiyu).page(params[:page]).each do |k|
       %tr.autopagerize_page_element
         %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
         %td=link_to k.phone, kishu_path(k.phone)
