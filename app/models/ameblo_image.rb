@@ -6,6 +6,9 @@ class AmebloImage < ActiveRecord::Base
       alice = Mechanize.new
       page = alice.get url
       image = page.root.xpath("//div[@id='originalImgUrl']").text
+      unless !image.blank?
+        image = "http://stat.ameba.jp/#{JSON.parse(page.root.to_s.split("\n").select{|x| x =~ /\"current\":\ \{/}.first.sub(/^\"current\":\ /, '').chop)['imgList'].first['imgUrl']}"
+      end
       m = Magick::Image.from_blob(open(image).read).first
       m.format = 'PNG'
       img = gyazo m.to_blob
