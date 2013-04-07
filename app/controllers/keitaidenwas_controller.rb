@@ -1,5 +1,6 @@
 class KeitaidenwasController < ApplicationController
   def create
+    login
     ActiveRecord::Base.transaction do
       p = params.dup.symbolize_keys
       s = Seiyu.find_or_create_by_name!(p[:keitaidenwa][:seiyu][:name])

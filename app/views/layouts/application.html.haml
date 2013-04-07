@@ -15,3 +15,6 @@
     =link_to image_tag('facebook.png'), '/auth/facebook'
 -else
   %p=link_to 'ログアウト', sessions_path, method: 'DELETE'
+.none
+  %span#controller=params[:controller]
+  %span#action=params[:action]

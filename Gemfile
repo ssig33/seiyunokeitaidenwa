@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'haml'
 gem 'omniauth-openid'
 gem 'omniauth-facebook'
+gem 'twitter'
 
 
 # Gems used only for assets and not required

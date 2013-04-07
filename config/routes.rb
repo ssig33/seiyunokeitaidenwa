@@ -7,6 +7,8 @@ Seiyunokeitaidenwa::Application.routes.draw do
   get 'denwa/edit/:id' => 'keitaidenwas#edit', as: :edit_keitaidenwa
   get 'kishu/:phone' => 'keitaidenwas#list', as: :kishu
 
+  get 'tweet' => 'index#tweet', as: :tweet
+
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu
