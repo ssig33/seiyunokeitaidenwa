@@ -17,6 +17,8 @@ gem 'omniauth-oauth', github: 'ssig33/omniauth-oauth'
 gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'haml'
+gem 'omniauth-openid'
+gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required

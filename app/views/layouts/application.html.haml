@@ -1,10 +1,17 @@
 !!!
-%html
-  %head
-    %title=content_for?(:title) ? yield(:title) : '声優の携帯電話'
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-  %body
-    %h1=link_to '声優の携帯電話', '/'
-    = yield
+%title=content_for?(:title) ? yield(:title) : '声優の携帯電話'
+= stylesheet_link_tag    "application", :media => "all"
+= javascript_include_tag "application"
+= csrf_meta_tags
+%h1=link_to '声優の携帯電話', '/'
+= yield
+-unless login?
+  %h3 ログインして声優の携帯電話の情報を登録
+  %p
+    =link_to image_tag('openid.png'), '/auth/open_id'
+    %br
+    =link_to image_tag('twitter.png'), '/auth/twitter'
+    %br
+    =link_to image_tag('facebook.png'), '/auth/facebook'
+-else
+  %p=link_to 'ログアウト', sessions_path, method: 'DELETE'

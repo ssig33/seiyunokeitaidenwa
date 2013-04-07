@@ -5,6 +5,10 @@ Seiyunokeitaidenwa::Application.routes.draw do
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu
+
+  match 'auth/:provider/callback' => 'sessions#create'
+
+  delete '/sessions' => 'sessions#destroy'
   #resources :keitaidenwas
   # The priority is based upon order of creation:
   # first created -> highest priority.
