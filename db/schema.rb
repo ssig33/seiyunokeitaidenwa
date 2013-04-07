@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407081013) do
+ActiveRecord::Schema.define(:version => 20130407115312) do
 
   create_table "ameblo_images", :force => true do |t|
     t.string   "url"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(:version => 20130407081013) do
   add_index "caches", ["key"], :name => "index_caches_on_key"
 
   create_table "keitaidenwas", :force => true do |t|
-    t.integer  "seiyu_id",   :limit => 255
     t.string   "phone"
     t.string   "url"
     t.date     "at"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "seiyu_id"
+    t.text     "description"
   end
 
   add_index "keitaidenwas", ["at"], :name => "index_keitaidenwas_on_at"

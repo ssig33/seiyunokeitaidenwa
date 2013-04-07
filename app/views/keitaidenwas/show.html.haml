@@ -19,6 +19,9 @@
     %h3 この発言は #{raw @k.tweet['source']} で発言されています。
   -else
     =link_to 'ここで確認', @k.url
+-if @k.description
+  %h4 備考
+  =raw CGI.escapeHTML(@k.description).gsub(/\n/, '<br/>')
 -if login?
   %p=link_to '情報を編集', edit_keitaidenwa_path(@k)
 

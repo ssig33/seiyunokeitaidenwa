@@ -1,7 +1,7 @@
 class Keitaidenwa < ActiveRecord::Base
   belongs_to :seiyu
   accepts_nested_attributes_for :seiyu
-  attr_accessible :at, :phone, :seiyu_id, :url
+  attr_accessible :at, :phone, :seiyu_id, :url, :description
   has_one :tweet, primary_key: :url, foreign_key: :url
   validates_presence_of :at
   validates_presence_of :phone
