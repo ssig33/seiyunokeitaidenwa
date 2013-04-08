@@ -26,10 +26,10 @@
 
 %p
   %form#seiyu_jump
-    %input#seiyu_name(value="#{Seiyu.order("RANDOM()").first.name}")
+    %input#seiyu_name
     %button が使っていた携帯電話を見る
   %form#keitaidenwa_jump
-    %input#keitaidenwa_name(value="#{Keitaidenwa.select('distinct phone').order("RANDOM()").first.phone}")
+    %input#keitaidenwa_name
     %button を使っていた声優を見る
 
 
