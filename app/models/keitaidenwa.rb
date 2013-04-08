@@ -37,4 +37,13 @@ class Keitaidenwa < ActiveRecord::Base
   def excite_image
     AmebloImage.from_url_excite self.url
   end
+  
+  def twipple_image?
+    self.url =~ /twipple\.jp/
+  end
+
+  def twipple_image
+    AmebloImage.from_url_twipple self.url
+  end
+
 end

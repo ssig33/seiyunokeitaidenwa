@@ -10,8 +10,16 @@
 %p
   - if @k.excite_image?
     %img(src="#{@k.excite_image}")
+    %br
+    =link_to 'ここで確認', @k.url
+  - if @k.twipple_image?
+    %img(src="#{@k.twipple_image}")
+    %br
+    =link_to 'ここで確認', @k.url
   - elsif @k.image?
     %img(src="#{@k.url}")
+    %br
+    =link_to 'ここで確認', @k.url
   - elsif @k.ameblo_image?
     =image_tag @k.ameblo_image rescue nil
     %br

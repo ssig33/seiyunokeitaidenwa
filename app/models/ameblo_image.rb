@@ -30,6 +30,19 @@ class AmebloImage < ActiveRecord::Base
     a.image
   end
 
+  def self.from_url_twipple url
+    unless a = self.where(url: url).first
+      alice = Mechanize.new
+      page = alice.get url
+      image = page.root.xpath("//*[@id=\"post_image\"]").first[:src]
+      m = Magick::Image.from_blob(open(image).read).first
+      m.format = 'PNG'
+      img = gyazo m.to_blob
+      a = self.find_or_create_by_url(url, image: img)
+    end
+    a.image
+  end
+
 
 private
   require 'net/http'
