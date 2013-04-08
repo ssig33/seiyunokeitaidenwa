@@ -12,6 +12,9 @@ Seiyunokeitaidenwa::Application.routes.draw do
   post 'denwas' => 'keitaidenwas#create', as: :keitaidenwas
 
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu
+  get 'seiyu/edit/:name' => 'seiyu#edit', as: :seiyu_edit
+  delete 'seiyu/:name' => 'seiyu#delete'
+  put 'seiyu/:name' => 'seiyu#update'
 
   match 'auth/:provider/callback' => 'sessions#create'
 

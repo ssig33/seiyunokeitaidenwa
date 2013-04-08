@@ -1,0 +1,10 @@
+%h2 #{@s.name}の情報を編集
+=form_for @s do |s|
+  %table
+    %tr
+      %th=s.label :name, '声優の名前(必須)'
+      %td=s.text_field :name
+    %tr
+      %th=s.label :url, '声優のブログなどの URL'
+      %td=s.text_field :url
+  %p=s.submit '更新'

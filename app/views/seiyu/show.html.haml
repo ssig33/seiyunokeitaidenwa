@@ -1,6 +1,10 @@
 =content_for :title do
   #{@s.name}の携帯電話遍歴 - 声優の携帯電話
-%h2="#{@s.name}の携帯電話遍歴"
+%h2 
+  -if @s.url
+    #{link_to @s.name, @s.url}の携帯電話遍歴
+  -else
+    #{@s.name}の携帯電話遍歴
 %table
   %tr
     %th 機種
@@ -31,3 +35,7 @@
           %th=f.label :url, "その携帯電話であることが分かる URL(必須)"
           %th=f.text_field :url
       %p=f.submit '登録'
+  %p=link_to 'この声優の情報を編集', seiyu_edit_path(@s)
+  -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
+    %p=link_to '削除', seiyu_path(@s), method: 'DELETE', data: {confirm: 'really?'}
+
