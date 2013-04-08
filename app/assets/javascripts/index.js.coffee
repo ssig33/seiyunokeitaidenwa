@@ -22,7 +22,22 @@ Tweet = ->
       undefined
   this
 
+Search = ->
+  @attach_event = =>
+    $('#seiyu_jump').submit(->
+      location.pathname = "/seiyu/#{encodeURIComponent $('#seiyu_name').val()}"
+      false
+    )
+    $('#keitaidenwa_jump').submit(->
+      location.pathname = "/kishu/#{encodeURIComponent $('#keitaidenwa_name').val()}"
+      false
+    )
+  this
+
 $ ->
   router 'index', 'tweet', ->
     t = new Tweet()
     t.attach_event()
+  router 'index', 'index', ->
+    s = new Search()
+    s.attach_event()

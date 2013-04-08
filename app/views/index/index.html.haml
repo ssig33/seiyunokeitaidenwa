@@ -23,6 +23,16 @@
       %p=f.submit '登録'
   %h4=link_to 'Tweet から調べる', tweet_path
 
+
+%p
+  %form#seiyu_jump
+    %input#seiyu_name(value="#{Seiyu.order("RANDOM()").first.name}")
+    %button が使っていた携帯電話を見る
+  %form#keitaidenwa_jump
+    %input#keitaidenwa_name(value="#{Keitaidenwa.select('distinct phone').order("RANDOM()").first.phone}")
+    %button を使っていた声優を見る
+
+
 .list
   %table
     %tr

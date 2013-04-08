@@ -25,9 +25,9 @@
           %th=f.label :phone, '機種(必須)'
           %td=f.text_field :phone
         %tr
-          %th=f.label :at, "#{params[:phone]} だった日(必須,YYYY/MM/DD)"
+          %th=f.label :at, "その携帯電話だった日(必須,YYYY/MM/DD)"
           %td=f.text_field :at
         %tr
-          %th=f.label :url, "#{params[:phone]} であることが分かる URL(必須)"
+          %th=f.label :url, "その携帯電話であることが分かる URL(必須)"
           %th=f.text_field :url
       %p=f.submit '登録'
