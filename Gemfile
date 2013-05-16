@@ -25,6 +25,7 @@ gem 'twitter'
 gem 'rmagick', require: 'RMagick'
 gem 'dalli'
 
+gem 'exception_notification'
 
 
 # Gems used only for assets and not required
