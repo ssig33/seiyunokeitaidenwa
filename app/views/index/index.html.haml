@@ -22,33 +22,4 @@
           %th=f.text_field :url
       %p=f.submit '登録'
   %h4=link_to 'Tweet から調べる', tweet_path
-
-
-%p
-  %form#seiyu_jump
-    %input#seiyu_name
-    %button が使っていた携帯電話を見る
-  %form#keitaidenwa_jump
-    %input#keitaidenwa_name
-    %button を使っていた声優を見る
-
-
-.list
-  %table
-    %tr
-      %th 声優
-      %th 機種
-      %th その携帯電話だった日
-    -@list.includes(:seiyu).page(params[:page]).each do |k|
-      %tr.autopagerize_page_element
-        %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
-        %td=link_to k.phone, kishu_path(k.phone)
-        %td=l k.at rescue nil
-        %td=link_to '詳細', keitaidenwa_path(k)
-        -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
-          %td=link_to '削除', keitaidenwa_path(k), method: 'DELETE', data: {confirm: 'really?'}
-    %tr.autopagerize_insert_before
-
-.pager=paginate @list.page(params[:page])
-
-
+=raw @html

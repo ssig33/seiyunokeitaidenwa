@@ -22,7 +22,8 @@ gem 'omniauth-openid'
 gem 'omniauth-facebook'
 gem 'twitter'
 gem 'rmagick', require: 'RMagick'
-gem 'act-fluent-logger-rails'
+gem 'dalli'
+
 
 
 # Gems used only for assets and not required
