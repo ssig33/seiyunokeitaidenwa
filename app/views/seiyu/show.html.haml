@@ -1,31 +1,35 @@
-=content_for :title do
-  #{@s.name}の携帯電話遍歴 - 声優の携帯電話
-%h2 
-  -if @s.url
-    #{link_to @s.name, @s.url}の携帯電話遍歴
-  -else
-    #{@s.name}の携帯電話遍歴
-%h3 #{@s.name}の機種変更の間隔は#{@s.kankaku}です
-%table
-  %tr
-    %th 機種
-    %th その携帯電話だった日
-  -@s.keitaidenwas.order('at desc').page(params[:page]).each do |k|
-    %tr.autopagerize_page_element
-      %td=link_to k.phone, kishu_path(k.phone)
-      %td=l k.at
-      %td=link_to '詳細', keitaidenwa_path(k)
-  %tr.autopagerize_insert_before
-.pager=paginate @s.keitaidenwas.order('at desc').page(params[:page])
+-if @s
+  =content_for :title do
+    #{@s.name}の携帯電話遍歴 - 声優の携帯電話
+  %h2 
+    -if @s.url
+      #{link_to @s.name, @s.url}の携帯電話遍歴
+    -else
+      #{@s.name}の携帯電話遍歴
+  %h3 #{@s.name}の機種変更の間隔は#{@s.kankaku}です
+  %table
+    %tr
+      %th 機種
+      %th その携帯電話だった日
+    -@s.keitaidenwas.order('at desc').page(params[:page]).each do |k|
+      %tr.autopagerize_page_element
+        %td=link_to k.phone, kishu_path(k.phone)
+        %td=l k.at
+        %td=link_to '詳細', keitaidenwa_path(k)
+    %tr.autopagerize_insert_before
+  .pager=paginate @s.keitaidenwas.order('at desc').page(params[:page])
+  
+-else
+  %h2 #{params[:name]} の情報は登録されていません
 -if login?
-  %h3 #{@s.name}の使っている携帯電話の情報を登録
+  %h3 #{params[:name]}の使っている携帯電話の情報を登録
   .register
     =t flash[:error] if flash[:error]
     =form_for Keitaidenwa.new do |f|
       =f.hidden_field :phone, value: params[:phone]
       %table
         =f.fields_for Seiyu.new do |s|
-          =s.hidden_field :name, value: @s.name
+          =s.hidden_field :name, value: params[:name]
         %tr
           %th=f.label :phone, '機種(必須)'
           %td=f.text_field :phone
@@ -36,7 +40,7 @@
           %th=f.label :url, "その携帯電話であることが分かる URL(必須)"
           %th=f.text_field :url
       %p=f.submit '登録'
-  %p=link_to 'この声優の情報を編集', seiyu_edit_path(@s)
-  -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
-    %p=link_to '削除', seiyu_path(@s), method: 'DELETE', data: {confirm: 'really?'}
-
+  -if @s
+    %p=link_to 'この声優の情報を編集', seiyu_edit_path(@s)
+    -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
+      %p=link_to '削除', seiyu_path(@s), method: 'DELETE', data: {confirm: 'really?'}
