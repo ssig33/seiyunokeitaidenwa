@@ -91,6 +91,7 @@ GEM
     multipart-post (1.2.0)
     net-http-digest_auth (1.3)
     net-http-persistent (2.8)
+    newrelic_rpm (3.6.2.96)
     nokogiri (1.5.9)
     ntlm-http (0.1.1)
     oauth (0.4.7)
@@ -208,6 +209,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mechanize
+  newrelic_rpm
   omniauth-facebook
   omniauth-oauth!
   omniauth-openid
