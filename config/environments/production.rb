@@ -13,8 +13,8 @@ Seiyunokeitaidenwa::Application.configure do
 
 end
 
-Seiyunokeitaidenwa::Application.config.middleware.use ExceptionNotifier,
-  :email_prefix => "[Seiyunokeitaidenwa::Application-production] ",
-  :sender_address => "notifier <seiyunokeitaidenwa@ssig33.com>",
-  :exception_recipients => %w{mail@ssig33.com}
+#Seiyunokeitaidenwa::Application.config.middleware.use ExceptionNotifier,
+#  :email_prefix => "[Seiyunokeitaidenwa::Application-production] ",
+#  :sender_address => "notifier <seiyunokeitaidenwa@ssig33.com>",
+#  :exception_recipients => %w{mail@ssig33.com}
 
