@@ -1,0 +1,7 @@
+%h2 沢山の声優に使われている携帯電話
+%table
+  -@list.each do |l|
+    -next if l.phone == 'iPhone'
+    %tr
+      %td=link_to l.phone, kishu_path(l.phone)
+      %td=l.count

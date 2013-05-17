@@ -17,4 +17,8 @@ class SeiyuController < ApplicationController
     s.update_attributes params[:seiyu]
     redirect_to seiyu_path s
   end
+
+  def ranking
+    @list = Keitaidenwa.joins(:seiyu).group("seiyu_id").select('seiyus.name as name, count(distinct phone) as count').order('count desc').limit(20)
+  end
 end

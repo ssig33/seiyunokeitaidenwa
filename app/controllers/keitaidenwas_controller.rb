@@ -38,4 +38,8 @@ class KeitaidenwasController < ApplicationController
     k.update_attributes params[:keitaidenwa]
     redirect_to keitaidenwa_path k
   end
+
+  def ranking
+    @list = Keitaidenwa.group('phone').select('phone as phone, count(distinct seiyu_id) as count').order('count desc').limit(21) 
+  end
 end

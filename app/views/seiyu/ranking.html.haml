@@ -1,0 +1,6 @@
+%h2 沢山の携帯電話を持っている声優
+%table
+  -@list.each do |l|
+    %tr
+      %td=link_to l.name, seiyu_path(l.name)
+      %td #{l.count} 台
