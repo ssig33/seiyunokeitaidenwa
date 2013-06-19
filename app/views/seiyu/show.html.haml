@@ -42,5 +42,5 @@
       %p=f.submit '登録'
   -if @s
     %p=link_to 'この声優の情報を編集', seiyu_edit_path(@s)
-    -if session[:login] =~ /https:\/\/id.mixi.jp\/118379/
+    -if session[:login] =="twitter+5159931"
       %p=link_to '削除', seiyu_path(@s), method: 'DELETE', data: {confirm: 'really?'}

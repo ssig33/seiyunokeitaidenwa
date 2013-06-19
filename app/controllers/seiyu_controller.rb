@@ -4,6 +4,7 @@ class SeiyuController < ApplicationController
   end
 
   def delete
+    raise unless session[:login] == "twitter+5159931"
     @s = Seiyu.where(name: params[:name]).first.destroy
     redirect_to '/'
   end
