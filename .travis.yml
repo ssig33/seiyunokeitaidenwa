@@ -7,7 +7,9 @@ env:
       U4HjCMQ93+zqLiMcnSza1e7mc6vC+YibEUJxIZr27OlopgUaLRE=
 rvm:
 - 2.0.0
-script: 'ruby ci.rb'
+script: 
+  - 'gem install bundler'
+  - 'ruby ci.rb'
 after_success:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - git remote add heroku git@heroku.com:seiyunokeitaidenwa.git
