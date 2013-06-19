@@ -25,7 +25,7 @@ gem 'twitter'
 gem 'rmagick', require: 'RMagick'
 gem 'dalli'
 
-gem 'exception_notification'
+gem 'exception_notification',github: 'smartinez87/exception_notification'
 
 gem 'sass-rails', '4.0.0.rc2'
 gem 'coffee-rails'#, '4.0.0.rc1'

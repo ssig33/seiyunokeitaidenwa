@@ -1,5 +1,4 @@
 class AmebloImage < ActiveRecord::Base
-  attr_accessible :image, :url
   require 'open-uri'
   def self.from_url url
     unless a = self.where(url: url).first

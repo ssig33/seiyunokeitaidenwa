@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/smartinez87/exception_notification.git
+  revision: 5ee8cac707b9a3d580f388bf5e22e673ac57562e
+  specs:
+    exception_notification (3.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
+
+GIT
   remote: git://github.com/ssig33/omniauth-oauth.git
   revision: 90eeb9b8a49d1c1c085ebcf52ed8c4f305c438a0
   specs:
@@ -50,8 +58,6 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    exception_notification (3.0.1)
-      actionmailer (>= 3.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     faraday (0.8.7)
@@ -204,7 +210,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails
   dalli
-  exception_notification
+  exception_notification!
   haml
   jquery-rails
   kaminari

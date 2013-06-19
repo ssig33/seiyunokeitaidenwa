@@ -35,7 +35,7 @@ class KeitaidenwasController < ApplicationController
   def update
     login
     k = Keitaidenwa.find params[:id]
-    k.update_attributes params[:keitaidenwa]
+    k.update_attributes params[:keitaidenwa].permit([:phone, :at, :url, :description])
     redirect_to keitaidenwa_path k
   end
 

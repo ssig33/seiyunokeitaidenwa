@@ -4,7 +4,7 @@ Seiyunokeitaidenwa::Application.routes.draw do
   get 'denwa/ranking' => 'keitaidenwas#ranking', as: :denwa_ranking
   get 'denwa/:id' => 'keitaidenwas#show', as: :keitaidenwa
   delete 'denwa/:id' => 'keitaidenwas#delete'
-  put 'denwa/:id' => 'keitaidenwas#update'
+  patch 'denwa/:id' => 'keitaidenwas#update'
   get 'denwa/edit/:id' => 'keitaidenwas#edit', as: :edit_keitaidenwa
   get 'kishu/:phone' => 'keitaidenwas#list', as: :kishu
 
@@ -15,11 +15,11 @@ Seiyunokeitaidenwa::Application.routes.draw do
   get 'seiyu/:name' => 'seiyu#show', as: :seiyu
   get 'seiyu/edit/:name' => 'seiyu#edit', as: :seiyu_edit
   delete 'seiyu/:name' => 'seiyu#delete'
-  put 'seiyu/:name' => 'seiyu#update'
+  patch 'seiyu/:name' => 'seiyu#update'
 
   
 
-  match 'auth/:provider/callback' => 'sessions#create'
+  match 'auth/:provider/callback' => 'sessions#create', via: [:post, :get]
 
   delete '/sessions' => 'sessions#destroy'
   

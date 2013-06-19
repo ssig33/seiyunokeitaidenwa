@@ -14,7 +14,7 @@ class SeiyuController < ApplicationController
 
   def update
     s = Seiyu.where(name: params[:name]).first
-    s.update_attributes params[:seiyu]
+    s.update_attributes params[:seiyu].permit([:name, :url])
     redirect_to seiyu_path s
   end
 
