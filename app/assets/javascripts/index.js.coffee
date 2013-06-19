@@ -25,11 +25,11 @@ Tweet = ->
 Search = ->
   @attach_event = =>
     $('#seiyu_jump').submit(->
-      location.pathname = "/seiyu/#{encodeURIComponent $('#seiyu_name').val()}"
+      location.href = "/seiyu/#{encodeURIComponent $('#seiyu_name').val()}"
       false
     )
     $('#keitaidenwa_jump').submit(->
-      location.pathname = "/kishu/#{encodeURIComponent $('#keitaidenwa_name').val()}"
+      location.href = "/kishu/#{encodeURIComponent $('#keitaidenwa_name').val()}"
       false
     )
   this
