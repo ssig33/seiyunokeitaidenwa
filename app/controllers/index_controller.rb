@@ -1,7 +1,6 @@
 class IndexController < ApplicationController
   def index
     @list = Keitaidenwa.order('id desc')
-    p session[:login]
     @html = params[:no_cache] ? html : Rails.cache.fetch("index_html_#{params[:page]}", expire_in: 2.minute){ html}
   end
 
