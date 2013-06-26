@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.0.0"
 
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,8 +27,8 @@ gem 'dalli'
 
 gem 'exception_notification',github: 'smartinez87/exception_notification'
 
-gem 'sass-rails', '4.0.0.rc2'
-gem 'coffee-rails'#, '4.0.0.rc1'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'uglifier'
 
 
