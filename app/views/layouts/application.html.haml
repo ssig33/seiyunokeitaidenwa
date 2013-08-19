@@ -1,22 +1,22 @@
 !!!
-%title=content_for?(:title) ? yield(:title) : '声優の携帯電話'
-%meta(content='width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport')
+%title=content_for?(:title) ? yield(:title) : "#{Message['name']}の携帯電話"
+%meta(content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport")
 = stylesheet_link_tag    "application", :media => "all"
 = javascript_include_tag "application"
 = csrf_meta_tags
-%h1=link_to '声優の携帯電話', '/'
+%h1=link_to "#{Message['name']}の携帯電話", "/"
 = yield
 -unless login?
-  %h3 いますぐログインして声優の携帯電話の情報を登録
+  %h3 いますぐログインして#{Message['name']}の携帯電話の情報を登録
   %p
     -#
-      =link_to image_tag('openid.png'), '/auth/openid'
+      =link_to image_tag("openid.png"), "/auth/openid"
       %br
-    =link_to image_tag('twitter.png'), '/auth/twitter'
+    =link_to image_tag("twitter.png"), "/auth/twitter"
     %br
-    =link_to image_tag('facebook.png'), '/auth/facebook'
+    =link_to image_tag("facebook.png"), "/auth/facebook"
 -else
-  %p=link_to 'ログアウト', sessions_path, method: 'DELETE'
+  %p=link_to "ログアウト", sessions_path, method: "DELETE"
 .none
   %span#controller=params[:controller]
   %span#action=params[:action]

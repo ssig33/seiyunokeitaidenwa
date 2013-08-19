@@ -2,9 +2,9 @@
 =form_for @s do |s|
   %table
     %tr
-      %th=s.label :name, '声優の名前(必須)'
+      %th=s.label :name, "#{Message["name"]}の名前(必須)"
       %td=s.text_field :name
     %tr
-      %th=s.label :url, '声優のブログなどの URL'
+      %th=s.label :url, "#{Message["name"]}のブログなどの URL"
       %td=s.text_field :url
-  %p=s.submit '更新'
+  %p=s.submit "更新"

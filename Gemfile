@@ -31,7 +31,6 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 
-
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

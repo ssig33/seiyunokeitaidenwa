@@ -1,19 +1,19 @@
 =content_for :title do
-  #{params[:phone]} を使っていた声優の一覧 - 声優の携帯電話
-%h2 #{params[:phone]} を使っていた声優の一覧
+  #{params[:phone]} を使っていた#{Message["name"]}の一覧 - #{Message["name"]}の携帯電話
+%h2 #{params[:phone]} を使っていた#{Message["name"]}の一覧
 %table
   %tr
-    %th 声優
+    %th #{Message["name"]}
     %th その携帯電話だった日
   -@list.includes(:seiyu).page(params[:page]).each do |k|
     %tr.autopagerize_page_element
       %td=link_to k.seiyu.name, seiyu_path(k.seiyu)
       %td=l k.at
-      %td=link_to '詳細', keitaidenwa_path(k)
+      %td=link_to "詳細", keitaidenwa_path(k)
   %tr.autopagerize_insert_before
 .pager=paginate @list.page(params[:page])
 -if login?
-  %h3 #{params[:phone]} を使っている声優の情報を登録
+  %h3 #{params[:phone]} を使っている#{Message["name"]}の情報を登録
   .register
     =t flash[:error] if flash[:error]
     =form_for Keitaidenwa.new do |f|
@@ -21,10 +21,10 @@
       %table
         =f.fields_for Seiyu.new do |s|
           %tr
-            %th=s.label :name, '声優の名前(必須)'
+            %th=s.label :name, "#{Message["name"]}の名前(必須)"
             %td=s.text_field :name
           %tr
-            %th=s.label :url, '声優のブログなどの URL'
+            %th=s.label :url, "#{Message["name"]}のブログなどの URL"
             %td=s.text_field :url
         %tr
           %th=f.label :at, "#{params[:phone]} だった日(必須,YYYY/MM/DD)"
@@ -32,4 +32,4 @@
         %tr
           %th=f.label :url, "#{params[:phone]} であることが分かる URL(必須)"
           %th=f.text_field :url
-      %p=f.submit '登録'
+      %p=f.submit "登録"

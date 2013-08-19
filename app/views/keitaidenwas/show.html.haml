@@ -1,5 +1,5 @@
 =content_for :title do
-  #{@k.seiyu.name}の#{l @k.at}の携帯電話は#{@k.phone} - 声優の携帯電話
+  #{@k.seiyu.name}の#{l @k.at}の携帯電話は#{@k.phone} - #{Message['name']}の携帯電話
 
 %h2
   =link_to @k.seiyu.name, seiyu_path(@k.seiyu)

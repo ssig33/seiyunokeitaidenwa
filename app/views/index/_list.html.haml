@@ -4,13 +4,13 @@
     %button が使っていた携帯電話を見る
   %form#keitaidenwa_jump
     %input#keitaidenwa_name
-    %button を使っていた声優を見る
+    %button を使っていた#{Message['name']}を見る
 
 
 .list
   %table
     %tr
-      %th 声優
+      %th #{Message['name']}
       %th 機種
       %th その携帯電話だった日
     -@list.includes(:seiyu).page(page).each do |k|
